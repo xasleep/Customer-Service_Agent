@@ -10,6 +10,7 @@ from demo_agent.agents.rag import RAGAgent
 from demo_agent.agents.tool_agent import ToolAgent
 from demo_agent.knowledge.retriever import KeywordRetriever
 from demo_agent.memory.session_memory import SessionMemory
+from demo_agent.models.client import HttpChatModelClient, ModelClient, ModelUnavailableError
 from demo_agent.schemas.models import AgentResponse
 from demo_agent.schemas.state import GraphState
 from demo_agent.tools.registry import ToolRegistry
@@ -73,12 +74,12 @@ class Supervisor:
         tools: ToolRegistry | None = None,
         memory: SessionMemory | None = None,
         model_name: str = "opai-gpt5.4",
-        model_client: Any | None = None,
+        model_client: ModelClient | None = None,
         high_value_order_threshold: float = HIGH_VALUE_ORDER_THRESHOLD,
     ):
         self.memory = memory or SessionMemory()
         self.model_name = model_name
-        self.model_client = model_client
+        self.model_client = model_client if model_client is not None else HttpChatModelClient.from_env(model_name)
         self.high_value_order_threshold = high_value_order_threshold
         self.intent_agent = IntentAgent()
         self.rag_agent = RAGAgent(retriever or KeywordRetriever.from_kb_dir(PROJECT_ROOT / "data" / "knowledge_base"))
@@ -260,9 +261,11 @@ class Supervisor:
             reasons.append("strong_negative_emotion")
 
         deduped = list(dict.fromkeys(reasons))
+        handoff_ticket = self._create_handoff_ticket(state, deduped) if deduped else {}
         return {
             "need_handoff": bool(deduped),
             "risk_reasons": deduped,
+            "handoff_ticket": handoff_ticket,
             "current_node": "risk_review",
         }
 
@@ -272,14 +275,33 @@ class Supervisor:
         risk_reasons = list(state.get("risk_reasons", []))
         if not passed and "compliance_failed" not in risk_reasons:
             risk_reasons.append("compliance_failed")
+        handoff_ticket = state.get("handoff_ticket", {})
+        if not passed and not handoff_ticket:
+            handoff_ticket = self._create_handoff_ticket({**state, "agent_response": response}, risk_reasons)
+        tool_calls = [asdict(call) for call in response.tool_calls]
+        if handoff_ticket:
+            tool_calls.append(
+                {
+                    "name": "ticket.create",
+                    "arguments": {
+                        "user_id": state["user_id"],
+                        "category": handoff_ticket.get("category", "handoff"),
+                        "order_id": handoff_ticket.get("order_id"),
+                    },
+                    "result": handoff_ticket,
+                    "success": True,
+                    "error": None,
+                }
+            )
         return {
             "compliance_passed": passed,
             "compliance_violations": violations,
             "final_response": reviewed_response,
             "sources": response.sources,
-            "tool_calls": [asdict(call) for call in response.tool_calls],
+            "tool_calls": tool_calls,
             "need_handoff": state.get("need_handoff", False) or not passed,
             "risk_reasons": risk_reasons,
+            "handoff_ticket": handoff_ticket,
             "current_node": "compliance_review",
         }
 
@@ -289,7 +311,19 @@ class Supervisor:
         return "template_fallback"
 
     def _llm_polish(self, state: GraphState) -> GraphState:
+        payload = self._build_polish_payload(state)
+        try:
+            assert self.model_client is not None
+            polished = self.model_client.polish(payload)
+        except (ModelUnavailableError, RuntimeError, OSError, ValueError, AssertionError) as exc:
+            return {
+                "final_response": state.get("final_response", ""),
+                "generation_mode": "template_fallback",
+                "model_error": str(exc),
+                "current_node": "llm_polish",
+            }
         return {
+            "final_response": polished,
             "generation_mode": f"llm:{self.model_name}",
             "current_node": "llm_polish",
         }
@@ -317,13 +351,43 @@ class Supervisor:
             "tool_calls": state.get("tool_calls", []),
             "need_handoff": state.get("need_handoff", False),
             "risk_reasons": state.get("risk_reasons", []),
+            "handoff_ticket": state.get("handoff_ticket", {}),
             "generation_mode": state.get("generation_mode", "template_fallback"),
             "model": self.model_name,
         }
+        if state.get("model_error"):
+            payload["model_error"] = state["model_error"]
         return {
             "response_payload": payload,
             "current_node": "synthesize",
         }
+
+    def _build_polish_payload(self, state: GraphState) -> dict[str, Any]:
+        intent = state["intent_result"]
+        return {
+            "user_message": state["message"],
+            "intent": intent.intent,
+            "entities": intent.entities,
+            "draft_response": state.get("final_response", ""),
+            "sources": state.get("sources", []),
+            "tool_calls": state.get("tool_calls", []),
+            "need_handoff": state.get("need_handoff", False),
+            "risk_reasons": state.get("risk_reasons", []),
+            "handoff_ticket": state.get("handoff_ticket", {}),
+        }
+
+    def _create_handoff_ticket(self, state: GraphState, reasons: list[str]) -> dict[str, Any]:
+        intent = state.get("intent_result")
+        order_id = intent.entities.get("order_id") if intent else None
+        summary = f"AI客服转人工：{state['message']}；原因：{','.join(reasons)}"
+        ticket = self.tool_agent.tools.ticket.create(
+            user_id=state["user_id"],
+            category="handoff",
+            summary=summary,
+            order_id=order_id,
+        )
+        ticket["handoff_reasons"] = reasons
+        return ticket
 
     def _update_memory(self, state: GraphState) -> GraphState:
         intent = state["intent_result"]

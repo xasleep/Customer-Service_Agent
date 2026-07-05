@@ -7,6 +7,16 @@ from demo_agent.agents.supervisor import Supervisor
 ROOT = Path(__file__).resolve().parents[1]
 
 
+class FakePolishModel:
+    def polish(self, payload):
+        return f"模型润色：{payload['draft_response']}"
+
+
+class BrokenPolishModel:
+    def polish(self, payload):
+        raise RuntimeError("model offline")
+
+
 def test_knowledge_question_returns_citation():
     supervisor = Supervisor()
 
@@ -80,6 +90,51 @@ def test_after_sales_query_uses_after_sales_tool():
     assert result["intent"] == "aftersales"
     assert "RR1002" in result["response"]
     assert result["tool_calls"][0]["name"] == "after_sales.query"
+
+
+def test_configured_model_polishes_grounded_response():
+    supervisor = Supervisor(model_client=FakePolishModel())
+
+    result = supervisor.chat("智能净化器现在有库存吗？", user_id="u1001", session_id="s-llm")
+
+    assert result["generation_mode"] == "llm:opai-gpt5.4"
+    assert result["response"].startswith("模型润色：")
+    assert "库存 26 件" in result["response"]
+
+
+def test_model_failure_falls_back_to_template_response():
+    supervisor = Supervisor(model_client=BrokenPolishModel())
+
+    result = supervisor.chat("智能净化器现在有库存吗？", user_id="u1001", session_id="s-llm-fallback")
+
+    assert result["generation_mode"] == "template_fallback"
+    assert result["model_error"] == "model offline"
+    assert "库存 26 件" in result["response"]
+
+
+def test_high_value_order_creates_handoff_ticket():
+    supervisor = Supervisor(high_value_order_threshold=1000)
+
+    result = supervisor.chat("订单 ORD1001 什么时候到？", user_id="u1001", session_id="s-high-value")
+
+    assert result["need_handoff"] is True
+    assert "high_value_order" in result["risk_reasons"]
+    assert result["handoff_ticket"]["category"] == "handoff"
+    assert any(
+        call["name"] == "ticket.create" and call["result"]["category"] == "handoff"
+        for call in result["tool_calls"]
+    )
+
+
+def test_strong_negative_emotion_creates_handoff_ticket():
+    supervisor = Supervisor()
+
+    result = supervisor.chat("我要投诉，退款失败还没人处理", user_id="u1001", session_id="s-angry")
+
+    assert result["need_handoff"] is True
+    assert "strong_negative_emotion" in result["risk_reasons"]
+    assert "sensitive_after_sales" in result["risk_reasons"]
+    assert result["handoff_ticket"]["ticket_id"].startswith("TK-DEMO-")
 
 
 def test_eval_cases_pass_core_expectations():

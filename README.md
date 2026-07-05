@@ -10,6 +10,8 @@ Local-first Python demo for an ecommerce customer service AI Agent. The project 
 - Mock ecommerce tools for products, orders, shipments, after-sales requests, tickets, users, and risk checks
 - Per-session memory for multi-turn follow-up
 - Template fallback when the configured model is unavailable
+- Optional `opai-gpt5.4` HTTP model polishing through environment variables
+- Risk handoff with automatic demo ticket creation
 - CLI and FastAPI entry points
 - Offline tests with local fixtures
 
@@ -33,6 +35,34 @@ curl -X POST http://localhost:8000/api/chat ^
   -H "Content-Type: application/json" ^
   -d "{\"message\":\"订单 ORD1001 什么时候到？\",\"user_id\":\"u1001\"}"
 ```
+
+## Optional Model Configuration
+
+The default model id is `opai-gpt5.4`. Model use is optional: without endpoint credentials, the project keeps running with deterministic template fallback.
+
+```bash
+copy .env.example .env
+```
+
+Then set:
+
+```text
+OPAI_BASE_URL=<your OpenAI-compatible chat endpoint>
+OPAI_API_KEY=<your key>
+MODEL_NAME=opai-gpt5.4
+```
+
+When configured, the LangGraph flow calls the model only after intent routing, local tool lookup, risk review, and compliance review. If the model call fails, the same structured result is returned through template fallback.
+
+## Risk Handoff
+
+The demo marks `need_handoff=true` and creates a demo handoff ticket when it detects:
+
+- Missing business data, such as an unknown order or shipment
+- High-value orders
+- Sensitive after-sales situations, such as complaints or refund failure
+- Strong negative emotion or escalation language
+- Compliance failures
 
 ## Example Questions
 

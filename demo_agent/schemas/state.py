@@ -39,5 +39,7 @@ class GraphState(TypedDict, total=False):
     risk_reasons: list[str]
     current_node: str
     generation_mode: str
+    model_error: str
+    handoff_ticket: dict[str, Any]
     response_payload: dict[str, Any]
     memory_updated: bool
