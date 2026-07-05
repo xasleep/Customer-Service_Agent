@@ -1,0 +1,33 @@
+[
+  {
+    "order_id": "ORD1001",
+    "user_id": "u1001",
+    "product": "智能净化器",
+    "amount": 1299.0,
+    "status": "shipped",
+    "status_label": "已发货",
+    "eta": "2026-07-06",
+    "tracking_no": "SF1234567890"
+  },
+  {
+    "order_id": "ORD1002",
+    "user_id": "u1002",
+    "product": "降噪耳机",
+    "amount": 699.0,
+    "status": "delivered",
+    "status_label": "已签收",
+    "eta": "2026-07-02",
+    "tracking_no": "YT9988776655"
+  },
+  {
+    "order_id": "ORD1003",
+    "user_id": "u1001",
+    "product": "胶囊咖啡机",
+    "amount": 899.0,
+    "status": "processing",
+    "status_label": "仓库处理中",
+    "eta": "2026-07-08",
+    "tracking_no": ""
+  }
+]
+

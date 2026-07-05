@@ -1,0 +1,20 @@
+[
+  {
+    "tracking_no": "SF1234567890",
+    "order_id": "ORD1001",
+    "carrier": "顺丰速运",
+    "status": "in_transit",
+    "status_label": "运输中",
+    "eta": "2026-07-06",
+    "last_event": "2026-07-05 09:18 包裹已到达杭州转运中心"
+  },
+  {
+    "tracking_no": "YT9988776655",
+    "order_id": "ORD1002",
+    "carrier": "圆通快递",
+    "status": "delivered",
+    "status_label": "已签收",
+    "eta": "2026-07-02",
+    "last_event": "2026-07-02 16:02 用户本人签收"
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "message": "智能净化器的保修规则是什么？",
+    "expected_intent": "knowledge",
+    "expected_source": "products.md"
+  },
+  {
+    "message": "退款政策是怎样的？",
+    "expected_intent": "knowledge",
+    "expected_source": "refund_policy.md"
+  },
+  {
+    "message": "订单 ORD1001 什么时候到？",
+    "expected_intent": "order",
+    "expected_tool": "order.query"
+  },
+  {
+    "message": "帮我申请 ORD1003 的退款",
+    "expected_intent": "ticket",
+    "expected_tool": "ticket.create"
+  },
+  {
+    "message": "客服能承诺当天必达吗？",
+    "expected_intent": "compliance",
+    "expected_source": "compliance_rules.md"
+  }
+]

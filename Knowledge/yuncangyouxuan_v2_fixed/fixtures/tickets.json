@@ -1,0 +1,90 @@
+[
+  {
+    "ticket_id": "T202607040001",
+    "order_id": "O202607040011",
+    "user_id": "U005",
+    "type": "logistics",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-07-04T10:12:00+08:00",
+    "summary": "包裹72小时无更新，用户发起物流催查",
+    "escalated": false
+  },
+  {
+    "ticket_id": "T202607040002",
+    "order_id": "O202607040004",
+    "user_id": "U004",
+    "type": "warranty",
+    "status": "escalated",
+    "priority": "high",
+    "created_at": "2026-07-03T19:25:00+08:00",
+    "summary": "扫地机器人第二次维修后30天内再次出现主刷故障，申请特殊换货复核",
+    "escalated": true
+  },
+  {
+    "ticket_id": "T202607040003",
+    "order_id": "O202607040001",
+    "user_id": "U001",
+    "type": "refund",
+    "status": "resolved",
+    "priority": "medium",
+    "created_at": "2026-06-28T14:08:00+08:00",
+    "summary": "智能净化器签收5天后无法开机，质量问题退款已完成",
+    "escalated": false
+  },
+  {
+    "ticket_id": "T202607040004",
+    "order_id": "O202607040003",
+    "user_id": "U003",
+    "type": "logistics",
+    "status": "resolved",
+    "priority": "medium",
+    "created_at": "2026-07-04T09:20:00+08:00",
+    "summary": "用户申请改址失败后取消订单，退款申请已批准",
+    "escalated": false
+  },
+  {
+    "ticket_id": "T202607040005",
+    "order_id": "O202607040005",
+    "user_id": "U005",
+    "type": "invoice",
+    "status": "open",
+    "priority": "low",
+    "created_at": "2026-07-04T09:50:00+08:00",
+    "summary": "电子发票已开具，用户申请作废后重开发票抬头",
+    "escalated": false
+  },
+  {
+    "ticket_id": "T202607040006",
+    "order_id": "O202607040012",
+    "user_id": "U006",
+    "type": "account_security",
+    "status": "escalated",
+    "priority": "high",
+    "created_at": "2026-07-04T08:40:00+08:00",
+    "summary": "新设备登录后触发账户风控，伴随高价值门锁售后申请",
+    "escalated": true
+  },
+  {
+    "ticket_id": "T202607040007",
+    "order_id": "O202607040007",
+    "user_id": "U001",
+    "type": "complaint",
+    "status": "open",
+    "priority": "medium",
+    "created_at": "2026-07-03T18:12:00+08:00",
+    "summary": "咖啡胶囊退货争议，用户不接受耗材规则解释",
+    "escalated": false
+  },
+  {
+    "ticket_id": "T202607040008",
+    "order_id": "O202607040006",
+    "user_id": "U006",
+    "type": "refund",
+    "status": "rejected",
+    "priority": "low",
+    "created_at": "2026-07-01T10:05:00+08:00",
+    "summary": "已拆封净化器滤芯申请无理由退货，审核驳回",
+    "escalated": false
+  }
+]

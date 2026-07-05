@@ -1,0 +1,16 @@
+[
+  {
+    "user_id": "u1001",
+    "name": "李女士",
+    "member_level": "gold",
+    "after_sales_score": 92,
+    "blacklisted": false
+  },
+  {
+    "user_id": "u1002",
+    "name": "周先生",
+    "member_level": "silver",
+    "after_sales_score": 86,
+    "blacklisted": false
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "ticket_id": "TK-DEMO-0001",
+    "user_id": "u1001",
+    "category": "logistics",
+    "summary": "物流超过预计时间未更新",
+    "order_id": "ORD1001",
+    "status": "processing"
+  }
+]
+

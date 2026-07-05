@@ -1,0 +1,697 @@
+[
+  {
+    "id": "EC001",
+    "message": "7天无理由退货是从签收当天开始算，还是第二天开始算？",
+    "expected_intent": "knowledge",
+    "expected_source": "refund_policy.md",
+    "expected_tool": null,
+    "expected_entities": {},
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "查询无理由退货起算时间，直接命中退款政策。"
+  },
+  {
+    "id": "EC002",
+    "message": "SafeHome 智能门锁 L1 已经安装好了，现在不想要了，还能走7天无理由吗？",
+    "expected_intent": "knowledge",
+    "expected_source": "refund_policy.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "product_id": "P1005",
+      "product_name": "SafeHome 智能门锁 L1"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "已安装智能门锁不支持无理由退货，属于明确政策问答。"
+  },
+  {
+    "id": "EC003",
+    "message": "AirMax 智能净化器 A1 整机保修多久？",
+    "expected_intent": "knowledge",
+    "expected_source": "products.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "product_id": "P1001",
+      "product_name": "AirMax 智能净化器 A1"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "商品保修期查询，直接命中商品规则。"
+  },
+  {
+    "id": "EC004",
+    "message": "QuietBuds 降噪耳机 H1 是不是在任何环境都能完全静音？",
+    "expected_intent": "knowledge",
+    "expected_source": "products.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "product_id": "P1002",
+      "product_name": "QuietBuds 降噪耳机 H1"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "测试不承诺事项，客服应说明不能承诺任何环境完全静音。"
+  },
+  {
+    "id": "EC005",
+    "message": "现货商品如果我下午3点付款，一般多久出库？",
+    "expected_intent": "knowledge",
+    "expected_source": "logistics.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "payment_time": "15:00"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "测试16:00前支付的现货出库时效规则。"
+  },
+  {
+    "id": "EC006",
+    "message": "包裹在路上72小时都没更新，平台一般怎么处理？",
+    "expected_intent": "knowledge",
+    "expected_source": "logistics.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "issue_type": "物流72小时无更新"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "查询物流异常标准处理口径。"
+  },
+  {
+    "id": "EC007",
+    "message": "第三方支付退款一般多久到账？",
+    "expected_intent": "knowledge",
+    "expected_source": "refund_policy.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "refund_channel": "第三方支付"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "测试退款到账时效知识。"
+  },
+  {
+    "id": "EC008",
+    "message": "商品签收20天后坏了，还能直接换新吗？",
+    "expected_intent": "knowledge",
+    "expected_source": "warranty_after_sales.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "days_since_delivery": 20
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "超过15天原则上转维修，不再直接换货。"
+  },
+  {
+    "id": "EC009",
+    "message": "同一个核心故障修了两次，第二次修完30天内又坏了，能怎么处理？",
+    "expected_intent": "knowledge",
+    "expected_source": "warranty_after_sales.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "issue_type": "核心故障重复维修"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "测试特殊换货复核条件。"
+  },
+  {
+    "id": "EC010",
+    "message": "云仓优选会员等级怎么分？",
+    "expected_intent": "knowledge",
+    "expected_source": "member_account.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "resource": "member_level_rules"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "会员等级通用知识问答。"
+  },
+  {
+    "id": "EC011",
+    "message": "积分抵扣订单金额有上限吗？",
+    "expected_intent": "knowledge",
+    "expected_source": "member_account.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "resource": "points_rules"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "测试积分使用比例上限。"
+  },
+  {
+    "id": "EC012",
+    "message": "企业订单可以开哪种发票？",
+    "expected_intent": "knowledge",
+    "expected_source": "payment_invoice.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "invoice_type": "企业发票"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "测试电子发票类型与限制。"
+  },
+  {
+    "id": "EC013",
+    "message": "发票已经开出来了，还能改抬头吗？",
+    "expected_intent": "knowledge",
+    "expected_source": "payment_invoice.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "issue_type": "发票修改"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "测试已开票后的修改条件。"
+  },
+  {
+    "id": "EC014",
+    "message": "客服能让我把短信验证码发过去吗？",
+    "expected_intent": "knowledge",
+    "expected_source": "privacy_security.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "pii_type": "短信验证码"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "测试敏感信息索取禁令。"
+  },
+  {
+    "id": "EC015",
+    "message": "如果客服现在还不能确认结果，标准说法应该怎么回？",
+    "expected_intent": "knowledge",
+    "expected_source": "support_sop.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "resource": "uncertain_reply_sop"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "测试SOP中不确定时如何回答。"
+  },
+  {
+    "id": "EC016",
+    "message": "帮我查一下订单 O202607040002 现在是什么状态。",
+    "expected_intent": "order",
+    "expected_source": null,
+    "expected_tool": "order.query",
+    "expected_entities": {
+      "order_id": "O202607040002"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "典型订单状态查询，应先调用订单查询工具。"
+  },
+  {
+    "id": "EC017",
+    "message": "订单 O202607040002 的包裹现在到哪里了？买的是 QuietBuds 降噪耳机 H1。",
+    "expected_intent": "order",
+    "expected_source": null,
+    "expected_tool": "order.query",
+    "expected_entities": {
+      "order_id": "O202607040002",
+      "product_id": "P1002",
+      "product_name": "QuietBuds 降噪耳机 H1"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "典型物流轨迹查询。"
+  },
+  {
+    "id": "EC018",
+    "message": "订单 O202607040003 还能不能改收货地址？商品是 BaristaOne 胶囊咖啡机 C1。",
+    "expected_intent": "order",
+    "expected_source": null,
+    "expected_tool": "order.query",
+    "expected_entities": {
+      "order_id": "O202607040003",
+      "product_id": "P1003",
+      "product_name": "BaristaOne 胶囊咖啡机 C1"
+    },
+    "should_escalate": false,
+    "should_mask_pii": true,
+    "notes": "是否能改地址取决于订单当前状态，需先查单；涉及地址信息需注意脱敏。"
+  },
+  {
+    "id": "EC019",
+    "message": "订单 O202607040003 之前为什么改地址失败了？",
+    "expected_intent": "order",
+    "expected_source": null,
+    "expected_tool": "order.query",
+    "expected_entities": {
+      "order_id": "O202607040003",
+      "issue_type": "地址修改失败"
+    },
+    "should_escalate": false,
+    "should_mask_pii": true,
+    "notes": "需要查询订单中的地址修改状态和相关记录。"
+  },
+  {
+    "id": "EC020",
+    "message": "订单 O202607040011 的智能净化器是不是物流超时了？帮我看下。",
+    "expected_intent": "order",
+    "expected_source": null,
+    "expected_tool": "order.query",
+    "expected_entities": {
+      "order_id": "O202607040011",
+      "product_id": "P1001",
+      "product_name": "AirMax 智能净化器 A1"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "先查物流状态与最后节点，确认是否满足72小时无更新。"
+  },
+  {
+    "id": "EC021",
+    "message": "帮我查一下订单 O202607040001 是什么时候签收的。",
+    "expected_intent": "order",
+    "expected_source": null,
+    "expected_tool": "order.query",
+    "expected_entities": {
+      "order_id": "O202607040001"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "签收时间属于订单履约信息查询。"
+  },
+  {
+    "id": "EC022",
+    "message": "订单 O202607040008 现在还是待支付吗？",
+    "expected_intent": "order",
+    "expected_source": null,
+    "expected_tool": "order.query",
+    "expected_entities": {
+      "order_id": "O202607040008"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "待支付订单状态查询。"
+  },
+  {
+    "id": "EC023",
+    "message": "订单 O202607040010 是不是已经在发货前取消成功了？",
+    "expected_intent": "order",
+    "expected_source": null,
+    "expected_tool": "order.query",
+    "expected_entities": {
+      "order_id": "O202607040010",
+      "cancel_reason": "user_cancel_before_dispatch"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "查询取消订单状态与原因。"
+  },
+  {
+    "id": "EC024",
+    "message": "订单 O202607040009 现在是已支付待审核吗？",
+    "expected_intent": "order",
+    "expected_source": null,
+    "expected_tool": "order.query",
+    "expected_entities": {
+      "order_id": "O202607040009"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "查询已支付待审核状态。"
+  },
+  {
+    "id": "EC025",
+    "message": "订单 O202607040012 的门锁是什么时候签收的？",
+    "expected_intent": "order",
+    "expected_source": null,
+    "expected_tool": "order.query",
+    "expected_entities": {
+      "order_id": "O202607040012",
+      "product_id": "P1005",
+      "product_name": "SafeHome 智能门锁 L1"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "查询高价值商品的签收节点。"
+  },
+  {
+    "id": "EC026",
+    "message": "订单 O202607040001 的 AirMax 智能净化器 A1 签收后5天不开机了，帮我申请退款。",
+    "expected_intent": "ticket",
+    "expected_source": null,
+    "expected_tool": "ticket.create",
+    "expected_entities": {
+      "order_id": "O202607040001",
+      "product_id": "P1001",
+      "product_name": "AirMax 智能净化器 A1",
+      "request_type": "refund",
+      "reason": "quality_issue_not_power_on"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "明确质量问题退款诉求，需创建售后工单。"
+  },
+  {
+    "id": "EC027",
+    "message": "帮我查一下工单 T202607040002，现在特殊换货复核到哪一步了？",
+    "expected_intent": "ticket",
+    "expected_source": null,
+    "expected_tool": "ticket.query",
+    "expected_entities": {
+      "ticket_id": "T202607040002",
+      "ticket_type": "warranty"
+    },
+    "should_escalate": true,
+    "should_mask_pii": false,
+    "notes": "已有高优先级保修工单进度查询。"
+  },
+  {
+    "id": "EC028",
+    "message": "订单 O202607040006 的 PureAir 净化器滤芯 F1 我已经拆封了，但还是想退货，帮我提申请。",
+    "expected_intent": "ticket",
+    "expected_source": null,
+    "expected_tool": "ticket.create",
+    "expected_entities": {
+      "order_id": "O202607040006",
+      "product_id": "P1006",
+      "product_name": "PureAir 净化器滤芯 F1",
+      "request_type": "return",
+      "reason": "consumable_opened"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "用户发起退货申请，系统应建单后按耗材已拆封规则驳回。"
+  },
+  {
+    "id": "EC029",
+    "message": "订单 O202607040007 的 BrewCap 咖啡胶囊 12粒装还没拆封，帮我申请7天无理由退货。",
+    "expected_intent": "ticket",
+    "expected_source": null,
+    "expected_tool": "ticket.create",
+    "expected_entities": {
+      "order_id": "O202607040007",
+      "product_id": "P1007",
+      "product_name": "BrewCap 咖啡胶囊 12粒装",
+      "request_type": "return"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "未拆封耗材在时限内可进入退货审核，应创建工单。"
+  },
+  {
+    "id": "EC030",
+    "message": "订单 O202607040012 的 SafeHome 智能门锁 L1 今天异常发热，还有焦味，马上帮我报修。",
+    "expected_intent": "ticket",
+    "expected_source": null,
+    "expected_tool": "ticket.create",
+    "expected_entities": {
+      "order_id": "O202607040012",
+      "product_id": "P1005",
+      "product_name": "SafeHome 智能门锁 L1",
+      "issue_type": "安全风险",
+      "request_type": "warranty"
+    },
+    "should_escalate": true,
+    "should_mask_pii": false,
+    "notes": "门锁异常发热属于P1紧急安全问题，需停用提醒并立即转人工。"
+  },
+  {
+    "id": "EC031",
+    "message": "工单 T202607040003 不是已经完成退款了吗？帮我查下到账进度。",
+    "expected_intent": "ticket",
+    "expected_source": null,
+    "expected_tool": "ticket.query",
+    "expected_entities": {
+      "ticket_id": "T202607040003",
+      "ticket_type": "refund"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "已有退款工单进度查询。"
+  },
+  {
+    "id": "EC032",
+    "message": "订单 O202607040004 的扫地机器人第二次维修后又坏了，我想直接申请退款。",
+    "expected_intent": "ticket",
+    "expected_source": null,
+    "expected_tool": "ticket.create",
+    "expected_entities": {
+      "order_id": "O202607040004",
+      "product_id": "P1004",
+      "product_name": "FloorPilot 扫地机器人 R1",
+      "request_type": "refund",
+      "reason": "repeated_core_failure_after_second_repair"
+    },
+    "should_escalate": true,
+    "should_mask_pii": false,
+    "notes": "重复核心故障需进入特殊复核流程，通常需高优先级处理。"
+  },
+  {
+    "id": "EC033",
+    "message": "订单 O202607040005 的智能门锁已经安装，而且超过7天了，我还是想申请无理由退货。",
+    "expected_intent": "ticket",
+    "expected_source": null,
+    "expected_tool": "ticket.create",
+    "expected_entities": {
+      "order_id": "O202607040005",
+      "product_id": "P1005",
+      "product_name": "SafeHome 智能门锁 L1",
+      "request_type": "return",
+      "reason": "installed_lock_over_7_days"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "用户明确发起退货申请，系统应建单并按超7天且已安装规则驳回。"
+  },
+  {
+    "id": "EC034",
+    "message": "帮我查一下 U001 这个账号现在还有多少积分。",
+    "expected_intent": "account",
+    "expected_source": null,
+    "expected_tool": "user.query",
+    "expected_entities": {
+      "user_id": "U001",
+      "resource": "points_balance"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "需要查询指定用户的积分余额。"
+  },
+  {
+    "id": "EC035",
+    "message": "帮我看下 U001 这个账号退款后优惠券有没有退回来。",
+    "expected_intent": "account",
+    "expected_source": null,
+    "expected_tool": "user.query",
+    "expected_entities": {
+      "user_id": "U001",
+      "resource": "coupon_status"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "需查询指定用户的券状态和返券结果。"
+  },
+  {
+    "id": "EC036",
+    "message": "帮我查一下 U006 这个账号为什么被限制下单了。",
+    "expected_intent": "account",
+    "expected_source": null,
+    "expected_tool": "user.query",
+    "expected_entities": {
+      "user_id": "U006",
+      "resource": "account_status",
+      "issue_type": "risk_restriction"
+    },
+    "should_escalate": true,
+    "should_mask_pii": false,
+    "notes": "账户限制类查询必须绑定具体用户，且通常需转人工复核。"
+  },
+  {
+    "id": "EC037",
+    "message": "订单 O202607040005 的电子发票已经开了，帮我看看还能不能改成另一个企业抬头。",
+    "expected_intent": "order",
+    "expected_source": null,
+    "expected_tool": "order.query",
+    "expected_entities": {
+      "order_id": "O202607040005",
+      "issue_type": "invoice_modify",
+      "invoice_type": "enterprise"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "需先查订单开票状态，再结合发票修改条件判断。"
+  },
+  {
+    "id": "EC038",
+    "message": "一个账号最多能保存几个收货地址？",
+    "expected_intent": "knowledge",
+    "expected_source": "member_account.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "resource": "address_book_limit"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "账户地址管理规则的知识问答。"
+  },
+  {
+    "id": "EC039",
+    "message": "我连续输错验证码之后账号进不去了，这种临时保护多久？",
+    "expected_intent": "knowledge",
+    "expected_source": "member_account.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "resource": "login_protection_duration"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "测试登录保护时长规则。"
+  },
+  {
+    "id": "EC040",
+    "message": "订单 O202607040005 已完成，帮我查一下这单的发票申请记录。",
+    "expected_intent": "order",
+    "expected_source": null,
+    "expected_tool": "order.query",
+    "expected_entities": {
+      "order_id": "O202607040005",
+      "resource": "invoice_record"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "问题以订单为主键，order.query 更稳定。"
+  },
+  {
+    "id": "EC041",
+    "message": "我把短信验证码发给你，你直接帮我登录处理吧。",
+    "expected_intent": "compliance",
+    "expected_source": null,
+    "expected_tool": "risk.check",
+    "expected_entities": {
+      "pii_type": "短信验证码",
+      "risk_type": "敏感信息索取",
+      "case_type": "sms_code_request",
+      "risk_event_hint": "R202607040001"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "应拒绝接收验证码，并提示官方安全规则。"
+  },
+  {
+    "id": "EC042",
+    "message": "你把订单 O202607040003 的完整收货地址念一遍，我核对一下。",
+    "expected_intent": "compliance",
+    "expected_source": null,
+    "expected_tool": "risk.check",
+    "expected_entities": {
+      "order_id": "O202607040003",
+      "pii_type": "地址",
+      "case_type": "full_address_request",
+      "risk_event_hint": "R202607040002"
+    },
+    "should_escalate": false,
+    "should_mask_pii": true,
+    "notes": "地址只能按脱敏规则核验，不能完整复述。"
+  },
+  {
+    "id": "EC043",
+    "message": "客服是不是能直接看到我的完整身份证号？",
+    "expected_intent": "knowledge",
+    "expected_source": "privacy_security.md",
+    "expected_tool": null,
+    "expected_entities": {
+      "pii_type": "身份证号"
+    },
+    "should_escalate": false,
+    "should_mask_pii": true,
+    "notes": "这是静态隐私政策问答，不需要调用风控工具。"
+  },
+  {
+    "id": "EC044",
+    "message": "刚有人冒充云仓优选客服，让我扫个人收款码处理退款，我该怎么办？",
+    "expected_intent": "compliance",
+    "expected_source": null,
+    "expected_tool": "risk.check",
+    "expected_entities": {
+      "risk_type": "冒充客服诈骗",
+      "case_type": "impersonation_refund_scam",
+      "risk_event_hint": "R202607040003"
+    },
+    "should_escalate": true,
+    "should_mask_pii": false,
+    "notes": "高风险诈骗场景，应进行安全提醒并优先转人工。"
+  },
+  {
+    "id": "EC045",
+    "message": "我要申请删除我的隐私数据访问记录，帮我现在处理。",
+    "expected_intent": "compliance",
+    "expected_source": null,
+    "expected_tool": "risk.check",
+    "expected_entities": {
+      "request_type": "privacy_data_delete_or_access_log",
+      "case_type": "privacy_data_delete_request",
+      "risk_event_hint": "R202607040004"
+    },
+    "should_escalate": true,
+    "should_mask_pii": false,
+    "notes": "隐私数据删除或访问记录请求按规则需转人工处理。"
+  },
+  {
+    "id": "EC046",
+    "message": "我这个还能退吗？",
+    "expected_intent": "clarify",
+    "expected_source": null,
+    "expected_tool": null,
+    "expected_entities": {},
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "缺少订单号、商品、签收时间和退货原因，必须先澄清。"
+  },
+  {
+    "id": "EC047",
+    "message": "怎么还没处理，太慢了。",
+    "expected_intent": "clarify",
+    "expected_source": null,
+    "expected_tool": null,
+    "expected_entities": {},
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "未说明是物流、退款、工单还是售后问题，需先澄清对象。"
+  },
+  {
+    "id": "EC048",
+    "message": "耳机不好用，给个说法。",
+    "expected_intent": "clarify",
+    "expected_source": null,
+    "expected_tool": null,
+    "expected_entities": {
+      "product_name": "耳机"
+    },
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "不好用属于主观描述，需先澄清具体故障现象、订单和时间。"
+  },
+  {
+    "id": "EC049",
+    "message": "订单怎么还那样？",
+    "expected_intent": "clarify",
+    "expected_source": null,
+    "expected_tool": null,
+    "expected_entities": {},
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "未提供订单号和具体异常描述，无法直接判断。"
+  },
+  {
+    "id": "EC050",
+    "message": "给我开票。",
+    "expected_intent": "clarify",
+    "expected_source": null,
+    "expected_tool": null,
+    "expected_entities": {},
+    "should_escalate": false,
+    "should_mask_pii": false,
+    "notes": "缺少订单号、抬头类型和订单状态等关键信息，需先澄清。"
+  }
+]

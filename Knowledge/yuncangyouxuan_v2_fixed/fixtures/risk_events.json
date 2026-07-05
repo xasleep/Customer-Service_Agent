@@ -1,0 +1,30 @@
+[
+  {
+    "risk_event_id": "R202607040001",
+    "case_type": "sms_code_request",
+    "risk_level": "medium",
+    "recommended_action": "refuse_collect_code_and_show_security_notice",
+    "should_escalate": false
+  },
+  {
+    "risk_event_id": "R202607040002",
+    "case_type": "full_address_request",
+    "risk_level": "medium",
+    "recommended_action": "refuse_full_address_disclosure_and_verify_masked_address_only",
+    "should_escalate": false
+  },
+  {
+    "risk_event_id": "R202607040003",
+    "case_type": "impersonation_refund_scam",
+    "risk_level": "high",
+    "recommended_action": "warn_user_stop_external_payment_and_transfer_to_security_agent",
+    "should_escalate": true
+  },
+  {
+    "risk_event_id": "R202607040004",
+    "case_type": "privacy_data_delete_request",
+    "risk_level": "high",
+    "recommended_action": "create_privacy_request_and_transfer_to_manual_review",
+    "should_escalate": true
+  }
+]

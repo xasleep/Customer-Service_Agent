@@ -1,0 +1,233 @@
+[
+  {
+    "order_id": "O202607040001",
+    "user_id": "U001",
+    "product_id": "P1001",
+    "quantity": 1,
+    "status": "after_sales",
+    "channel": "app",
+    "amount": 1299,
+    "order_time": "2026-06-20T10:18:00+08:00",
+    "paid_time": "2026-06-20T10:21:00+08:00",
+    "shipped_time": "2026-06-21T13:40:00+08:00",
+    "delivered_time": "2026-06-23T16:02:00+08:00",
+    "shipping_address_masked": "上海市浦东新区川沙路**号",
+    "scenario_tags": [
+      "质量问题",
+      "15天内",
+      "净化器不开机"
+    ],
+    "kb_status": "售后中"
+  },
+  {
+    "order_id": "O202607040002",
+    "user_id": "U002",
+    "product_id": "P1002",
+    "quantity": 1,
+    "status": "shipped",
+    "channel": "mini_program",
+    "amount": 899,
+    "order_time": "2026-07-02T20:15:00+08:00",
+    "paid_time": "2026-07-02T20:17:00+08:00",
+    "shipped_time": "2026-07-03T11:05:00+08:00",
+    "delivered_time": null,
+    "shipping_address_masked": "浙江省杭州市余杭区文一西路**号",
+    "scenario_tags": [
+      "运输中"
+    ],
+    "kb_status": "运输中"
+  },
+  {
+    "order_id": "O202607040003",
+    "user_id": "U003",
+    "product_id": "P1003",
+    "quantity": 1,
+    "status": "cancelled",
+    "channel": "web",
+    "amount": 1399,
+    "order_time": "2026-07-04T09:02:00+08:00",
+    "paid_time": "2026-07-04T09:03:00+08:00",
+    "shipped_time": null,
+    "delivered_time": null,
+    "shipping_address_masked": "江苏省南京市建邺区江东中路**号",
+    "address_change_status": "failed_before_dispatch",
+    "scenario_tags": [
+      "地址修改失败"
+    ],
+    "kb_status": "已取消",
+    "cancelled_time": "2026-07-04T10:05:00+08:00",
+    "cancel_reason": "address_change_failed_user_cancel"
+  },
+  {
+    "order_id": "O202607040004",
+    "user_id": "U004",
+    "product_id": "P1004",
+    "quantity": 1,
+    "status": "after_sales",
+    "channel": "app",
+    "amount": 2299,
+    "order_time": "2026-06-08T09:10:00+08:00",
+    "paid_time": "2026-06-08T09:12:00+08:00",
+    "shipped_time": "2026-06-09T15:20:00+08:00",
+    "delivered_time": "2026-06-10T15:26:00+08:00",
+    "shipping_address_masked": "北京市朝阳区望京街**号",
+    "scenario_tags": [
+      "重复维修",
+      "核心故障复发"
+    ],
+    "kb_status": "售后中"
+  },
+  {
+    "order_id": "O202607040005",
+    "user_id": "U005",
+    "product_id": "P1005",
+    "quantity": 1,
+    "status": "delivered",
+    "channel": "app",
+    "amount": 1999,
+    "order_time": "2026-06-15T14:30:00+08:00",
+    "paid_time": "2026-06-15T14:31:00+08:00",
+    "shipped_time": "2026-06-16T10:10:00+08:00",
+    "delivered_time": "2026-06-18T11:40:00+08:00",
+    "shipping_address_masked": "广东省深圳市南山区科苑路**号",
+    "install_status": "installed",
+    "scenario_tags": [
+      "超过7天",
+      "已安装"
+    ],
+    "kb_status": "已完成"
+  },
+  {
+    "order_id": "O202607040006",
+    "user_id": "U006",
+    "product_id": "P1006",
+    "quantity": 2,
+    "status": "delivered",
+    "channel": "mini_program",
+    "amount": 398,
+    "order_time": "2026-06-27T16:10:00+08:00",
+    "paid_time": "2026-06-27T16:12:00+08:00",
+    "shipped_time": "2026-06-28T09:05:00+08:00",
+    "delivered_time": "2026-06-29T18:12:00+08:00",
+    "shipping_address_masked": "四川省成都市高新区天府大道**号",
+    "scenario_tags": [
+      "耗材",
+      "已拆封"
+    ],
+    "kb_status": "已完成"
+  },
+  {
+    "order_id": "O202607040007",
+    "user_id": "U001",
+    "product_id": "P1007",
+    "quantity": 1,
+    "status": "delivered",
+    "channel": "app",
+    "amount": 79,
+    "order_time": "2026-06-28T18:05:00+08:00",
+    "paid_time": "2026-06-28T18:06:00+08:00",
+    "shipped_time": "2026-06-29T08:40:00+08:00",
+    "delivered_time": "2026-06-30T09:45:00+08:00",
+    "shipping_address_masked": "上海市闵行区申长路**号",
+    "scenario_tags": [
+      "耗材",
+      "未拆封待审核"
+    ],
+    "kb_status": "已完成"
+  },
+  {
+    "order_id": "O202607040008",
+    "user_id": "U002",
+    "product_id": "P1003",
+    "quantity": 1,
+    "status": "pending",
+    "channel": "web",
+    "amount": 1399,
+    "order_time": "2026-07-04T14:20:00+08:00",
+    "paid_time": null,
+    "shipped_time": null,
+    "delivered_time": null,
+    "shipping_address_masked": "重庆市渝北区金开大道**号",
+    "scenario_tags": [
+      "待支付"
+    ],
+    "kb_status": "待支付"
+  },
+  {
+    "order_id": "O202607040009",
+    "user_id": "U003",
+    "product_id": "P1004",
+    "quantity": 1,
+    "status": "paid",
+    "channel": "app",
+    "amount": 2299,
+    "order_time": "2026-07-04T11:10:00+08:00",
+    "paid_time": "2026-07-04T11:12:00+08:00",
+    "shipped_time": null,
+    "delivered_time": null,
+    "shipping_address_masked": "福建省厦门市思明区湖滨南路**号",
+    "scenario_tags": [
+      "已支付待审核"
+    ],
+    "kb_status": "已支付待审核"
+  },
+  {
+    "order_id": "O202607040010",
+    "user_id": "U004",
+    "product_id": "P1002",
+    "quantity": 1,
+    "status": "cancelled",
+    "channel": "app",
+    "amount": 899,
+    "order_time": "2026-07-02T08:30:00+08:00",
+    "paid_time": "2026-07-02T08:33:00+08:00",
+    "shipped_time": null,
+    "delivered_time": null,
+    "cancelled_time": "2026-07-02T08:40:00+08:00",
+    "cancel_reason": "user_cancel_before_dispatch",
+    "shipping_address_masked": "北京市海淀区中关村大街**号",
+    "scenario_tags": [
+      "发货前取消"
+    ],
+    "kb_status": "已取消"
+  },
+  {
+    "order_id": "O202607040011",
+    "user_id": "U005",
+    "product_id": "P1001",
+    "quantity": 1,
+    "status": "shipped",
+    "channel": "mini_program",
+    "amount": 1299,
+    "order_time": "2026-07-01T09:40:00+08:00",
+    "paid_time": "2026-07-01T09:42:00+08:00",
+    "shipped_time": "2026-07-01T18:10:00+08:00",
+    "delivered_time": null,
+    "shipping_address_masked": "广东省佛山市南海区桂城街道**号",
+    "scenario_tags": [
+      "物流超时",
+      "72小时无更新"
+    ],
+    "kb_status": "运输中"
+  },
+  {
+    "order_id": "O202607040012",
+    "user_id": "U006",
+    "product_id": "P1005",
+    "quantity": 1,
+    "status": "after_sales",
+    "channel": "app",
+    "amount": 1999,
+    "order_time": "2026-06-29T16:55:00+08:00",
+    "paid_time": "2026-06-29T16:57:00+08:00",
+    "shipped_time": "2026-06-30T14:00:00+08:00",
+    "delivered_time": "2026-07-02T12:30:00+08:00",
+    "shipping_address_masked": "湖北省武汉市洪山区珞喻路**号",
+    "scenario_tags": [
+      "账户异常",
+      "门锁异常发热",
+      "高优先级售后"
+    ],
+    "kb_status": "售后中"
+  }
+]

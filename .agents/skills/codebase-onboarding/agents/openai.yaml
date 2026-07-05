@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codebase Onboarding"
+  short_description: "Map an unfamiliar codebase before editing."
+  default_prompt: "Use -onboarding to inspect this repository and produce an implementation-ready orientation."

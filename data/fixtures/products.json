@@ -1,0 +1,32 @@
+[
+  {
+    "product_id": "P1001",
+    "name": "智能净化器",
+    "category": "家电",
+    "price": 1299.0,
+    "stock": 26,
+    "status": "in_stock",
+    "specs": "适用 30-45 平米，支持自动模式和滤芯寿命提醒",
+    "promotion": "会员下单赠送备用滤芯一枚"
+  },
+  {
+    "product_id": "P1002",
+    "name": "降噪耳机",
+    "category": "数码配件",
+    "price": 699.0,
+    "stock": 14,
+    "status": "in_stock",
+    "specs": "主动降噪，单次续航 8 小时，支持快充",
+    "promotion": "限时赠送收纳保护套"
+  },
+  {
+    "product_id": "P1003",
+    "name": "胶囊咖啡机",
+    "category": "家电",
+    "price": 899.0,
+    "stock": 0,
+    "status": "out_of_stock",
+    "specs": "19 bar 萃取压力，0.8L 水箱，兼容标准胶囊",
+    "promotion": "到货提醒开放中"
+  }
+]

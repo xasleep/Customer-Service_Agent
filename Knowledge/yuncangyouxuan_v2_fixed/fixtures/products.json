@@ -1,0 +1,201 @@
+[
+  {
+    "product_id": "P1001",
+    "name": "AirMax 智能净化器 A1",
+    "category": "家电",
+    "warranty_months": 24,
+    "is_consumable": false,
+    "returnable": true,
+    "price": 1299,
+    "return_policy": {
+      "no_reason_return": "conditional",
+      "conditions": [
+        "未影响二次销售",
+        "主商品配件齐全",
+        "签收次日起7天内"
+      ],
+      "not_supported_if": [
+        "已激活且无法恢复初始状态",
+        "存在明显使用痕迹",
+        "缺少核心配件或序列号标签"
+      ]
+    }
+  },
+  {
+    "product_id": "P1002",
+    "name": "QuietBuds 降噪耳机 H1",
+    "category": "数码配件",
+    "warranty_months": 12,
+    "is_consumable": false,
+    "returnable": true,
+    "price": 899,
+    "return_policy": {
+      "no_reason_return": "conditional",
+      "conditions": [
+        "未影响二次销售",
+        "主商品配件齐全",
+        "签收次日起7天内"
+      ],
+      "not_supported_if": [
+        "已激活且无法恢复初始状态",
+        "存在明显使用痕迹",
+        "缺少核心配件或序列号标签"
+      ]
+    }
+  },
+  {
+    "product_id": "P1003",
+    "name": "BaristaOne 胶囊咖啡机 C1",
+    "category": "家电",
+    "warranty_months": 18,
+    "is_consumable": false,
+    "returnable": true,
+    "price": 1399,
+    "return_policy": {
+      "no_reason_return": "conditional",
+      "conditions": [
+        "未影响二次销售",
+        "主商品配件齐全",
+        "签收次日起7天内"
+      ],
+      "not_supported_if": [
+        "已激活且无法恢复初始状态",
+        "存在明显使用痕迹",
+        "缺少核心配件或序列号标签"
+      ]
+    }
+  },
+  {
+    "product_id": "P1004",
+    "name": "FloorPilot 扫地机器人 R1",
+    "category": "生活小家电",
+    "warranty_months": 24,
+    "is_consumable": false,
+    "returnable": true,
+    "price": 2299,
+    "return_policy": {
+      "no_reason_return": "conditional",
+      "conditions": [
+        "未影响二次销售",
+        "主商品配件齐全",
+        "签收次日起7天内"
+      ],
+      "not_supported_if": [
+        "已激活且无法恢复初始状态",
+        "存在明显使用痕迹",
+        "缺少核心配件或序列号标签"
+      ]
+    }
+  },
+  {
+    "product_id": "P1005",
+    "name": "SafeHome 智能门锁 L1",
+    "category": "智能家居",
+    "warranty_months": 24,
+    "is_consumable": false,
+    "returnable": true,
+    "price": 1999,
+    "return_policy": {
+      "no_reason_return": "conditional",
+      "conditions": [
+        "未安装",
+        "未激活",
+        "未影响二次销售",
+        "签收次日起7天内"
+      ],
+      "not_supported_if": [
+        "已安装",
+        "已激活",
+        "存在明显使用痕迹",
+        "影响二次销售"
+      ]
+    }
+  },
+  {
+    "product_id": "P1006",
+    "name": "PureAir 净化器滤芯 F1",
+    "category": "耗材",
+    "warranty_months": 0,
+    "is_consumable": true,
+    "returnable": true,
+    "price": 199,
+    "return_policy": {
+      "no_reason_return": "conditional",
+      "conditions": [
+        "未拆封",
+        "未使用",
+        "签收次日起7天内"
+      ],
+      "not_supported_if": [
+        "已拆封",
+        "已使用",
+        "影响二次销售"
+      ]
+    }
+  },
+  {
+    "product_id": "P1007",
+    "name": "BrewCap 咖啡胶囊 12粒装",
+    "category": "耗材",
+    "warranty_months": 0,
+    "is_consumable": true,
+    "returnable": true,
+    "price": 79,
+    "return_policy": {
+      "no_reason_return": "conditional",
+      "conditions": [
+        "未拆封",
+        "未使用",
+        "签收次日起7天内"
+      ],
+      "not_supported_if": [
+        "已拆封",
+        "已使用",
+        "影响二次销售"
+      ]
+    }
+  },
+  {
+    "product_id": "P1008",
+    "name": "CleanBag 扫地机尘袋 6只装",
+    "category": "耗材",
+    "warranty_months": 0,
+    "is_consumable": true,
+    "returnable": true,
+    "price": 59,
+    "return_policy": {
+      "no_reason_return": "conditional",
+      "conditions": [
+        "未拆封",
+        "未使用",
+        "签收次日起7天内"
+      ],
+      "not_supported_if": [
+        "已拆封",
+        "已使用",
+        "影响二次销售"
+      ]
+    }
+  },
+  {
+    "product_id": "P1009",
+    "name": "云仓PLUS年卡",
+    "category": "会员权益",
+    "warranty_months": 0,
+    "is_consumable": false,
+    "returnable": false,
+    "price": 299,
+    "return_policy": {
+      "no_reason_return": "conditional",
+      "conditions": [
+        "权益未到账",
+        "未使用",
+        "未发生退款"
+      ],
+      "not_supported_if": [
+        "权益已到账",
+        "权益已使用"
+      ]
+    }
+  }
+]

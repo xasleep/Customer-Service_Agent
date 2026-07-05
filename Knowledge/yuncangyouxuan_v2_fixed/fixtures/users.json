@@ -1,0 +1,121 @@
+[
+  {
+    "user_id": "U001",
+    "name": "林小棠",
+    "member_level": "金卡会员",
+    "phone_masked": "138****1024",
+    "after_sales_score": 92,
+    "blacklisted": false,
+    "points_balance": 3280,
+    "coupons": [
+      {
+        "coupon_id": "CP-20260628-001",
+        "name": "会员满500减50券",
+        "status": "returned",
+        "source_order_id": "O202607040001",
+        "returned_at": "2026-07-01T15:20:00+08:00"
+      },
+      {
+        "coupon_id": "CP-20260702-003",
+        "name": "运费减免券",
+        "status": "available",
+        "source_order_id": null,
+        "returned_at": null
+      }
+    ],
+    "account_status": "active",
+    "restriction_reason": null
+  },
+  {
+    "user_id": "U002",
+    "name": "赵一衡",
+    "member_level": "银卡会员",
+    "phone_masked": "139****6671",
+    "after_sales_score": 85,
+    "blacklisted": false,
+    "points_balance": 1460,
+    "coupons": [
+      {
+        "coupon_id": "CP-20260701-011",
+        "name": "耳机品类券",
+        "status": "used",
+        "source_order_id": "O202607040002",
+        "returned_at": null
+      }
+    ],
+    "account_status": "active",
+    "restriction_reason": null
+  },
+  {
+    "user_id": "U003",
+    "name": "沈知夏",
+    "member_level": "普通会员",
+    "phone_masked": "137****4418",
+    "after_sales_score": 78,
+    "blacklisted": false,
+    "points_balance": 920,
+    "coupons": [
+      {
+        "coupon_id": "CP-20260704-021",
+        "name": "咖啡机限时券",
+        "status": "used",
+        "source_order_id": "O202607040003",
+        "returned_at": null
+      }
+    ],
+    "account_status": "protected",
+    "restriction_reason": "新地址变更触发二次校验，部分敏感操作需短时保护"
+  },
+  {
+    "user_id": "U004",
+    "name": "顾南舟",
+    "member_level": "黑金会员",
+    "phone_masked": "136****9055",
+    "after_sales_score": 96,
+    "blacklisted": false,
+    "points_balance": 8120,
+    "coupons": [
+      {
+        "coupon_id": "CP-20260608-001",
+        "name": "黑金会员换新补偿券",
+        "status": "available",
+        "source_order_id": null,
+        "returned_at": null
+      }
+    ],
+    "account_status": "active",
+    "restriction_reason": null
+  },
+  {
+    "user_id": "U005",
+    "name": "唐未央",
+    "member_level": "银卡会员",
+    "phone_masked": "135****2286",
+    "after_sales_score": 61,
+    "blacklisted": false,
+    "points_balance": 1850,
+    "coupons": [
+      {
+        "coupon_id": "CP-20260615-009",
+        "name": "门锁安装服务券",
+        "status": "used",
+        "source_order_id": "O202607040005",
+        "returned_at": null
+      }
+    ],
+    "account_status": "active",
+    "restriction_reason": null
+  },
+  {
+    "user_id": "U006",
+    "name": "许之遥",
+    "member_level": "普通会员",
+    "phone_masked": "133****7742",
+    "after_sales_score": 34,
+    "blacklisted": true,
+    "points_balance": 120,
+    "coupons": [],
+    "account_status": "restricted",
+    "restriction_reason": "多次异常售后申请与账户安全风控命中，需人工复核后恢复下单"
+  }
+]

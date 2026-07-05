@@ -1,0 +1,4 @@
+interface:
+  display_name: "Feature Builder"
+  short_description: "Turn a feature request into code, tests, and verification."
+  default_prompt: "Use -builder to implement this feature request end to end."
